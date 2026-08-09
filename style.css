@@ -1,861 +1,860 @@
-/* =====================================
-   DASAR
-===================================== */
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+
 
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: #172b4d;
-    background: #fff;
+    color: #172554;
+    background: #ffffff;
     line-height: 1.6;
-    overflow-x: hidden;
 }
+
 
 img {
     max-width: 100%;
     display: block;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
 
-
-/* =====================================
+/* =========================
    HEADER
-===================================== */
+========================= */
 
 .header {
     position: sticky;
     top: 0;
-    z-index: 999;
-    background: #fff;
-    box-shadow: 0 2px 12px rgba(0,0,0,.10);
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,.08);
 }
+
 
 .topbar {
-    background: #064b9b;
-    color: #fff;
-    text-align: center;
-    padding: 8px 15px;
-    font-size: 13px;
+    background: #0645a5;
+    color: white;
+    text-align: right;
+    padding: 12px 6%;
     font-weight: bold;
+    font-size: 14px;
 }
 
+
 .navbar {
-    min-height: 78px;
-    padding: 8px 5%;
+    min-height: 82px;
+    padding: 10px 6%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15px;
-    position: relative;
+
+    gap: 25px;
 }
+
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 12px;
-    min-width: 0;
+    gap: 15px;
 }
 
+
 .logo {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
-    flex-shrink: 0;
+    border-radius: 12px;
 }
+
 
 .brand-text {
     display: flex;
     flex-direction: column;
-    min-width: 0;
 }
 
+
 .brand-text strong {
-    color: #064b9b;
-    font-size: 21px;
-    line-height: 1.2;
+    font-size: 24px;
 }
+
 
 .brand-text span {
     color: #666;
-    font-size: 13px;
 }
+
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.nav-links a {
+    text-decoration: none;
+    color: #173b7a;
+    font-weight: 600;
+}
+
+
+.nav-links a:hover {
+    color: #0b63ce;
+}
+
 
 .menu-button {
     display: none;
     border: none;
-    background: #064b9b;
-    color: #fff;
-    width: 44px;
-    height: 44px;
+    background: #0645a5;
+    color: white;
+    font-size: 25px;
     border-radius: 8px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.nav-links a {
-    padding: 9px 11px;
-    border-radius: 7px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.nav-links a:hover {
-    background: #eaf3ff;
-    color: #064b9b;
+    padding: 7px 12px;
 }
 
 
-/* =====================================
+/* =========================
    HERO
-===================================== */
+========================= */
 
 .hero {
     position: relative;
-    width: 100%;
-    min-height: 470px;
+    min-height: 520px;
     overflow: hidden;
 }
 
+
 .hero-image {
     width: 100%;
-    height: 470px;
+    height: 520px;
     object-fit: cover;
 }
+
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        90deg,
-        rgba(3,40,84,.90),
-        rgba(3,40,84,.60),
-        rgba(3,40,84,.15)
-    );
+
     display: flex;
     align-items: center;
+
+    padding: 6%;
 }
+
 
 .hero-content {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    color: #fff;
+    max-width: 600px;
 }
+
 
 .hero-label {
-    display: inline-block;
-    font-size: 13px;
     font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
+    color: #0645a5;
 }
+
 
 .hero h1 {
-    font-size: clamp(35px, 5vw, 62px);
+    font-size: clamp(40px, 6vw, 72px);
     line-height: 1.05;
-    margin-bottom: 18px;
+    margin: 15px 0;
 }
 
+
 .hero p {
-    max-width: 600px;
-    font-size: 17px;
-    margin-bottom: 25px;
+    font-size: 20px;
+    max-width: 500px;
 }
+
 
 .button {
     display: inline-block;
-    background: #fff;
-    color: #064b9b;
-    padding: 13px 22px;
-    border-radius: 8px;
-    font-weight: bold;
+    margin-top: 25px;
+    padding: 13px 25px;
+
+    background: #0645a5;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 10px;
 }
 
 
-/* =====================================
-   KEUNGGULAN
-===================================== */
+/* =========================
+   FEATURES
+========================= */
 
 .features {
-    width: 90%;
-    max-width: 1150px;
-    margin: -35px auto 0;
-    position: relative;
-    z-index: 5;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-.feature-card {
-    background: #fff;
-    padding: 22px 18px;
-    border-radius: 12px;
-    box-shadow: 0 5px 22px rgba(0,0,0,.10);
-    text-align: center;
-}
-
-.feature-icon {
-    width: 44px;
-    height: 44px;
-    margin: 0 auto 10px;
-    border-radius: 50%;
-    background: #eaf3ff;
-    color: #064b9b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-}
-
-.feature-card h3 {
-    color: #064b9b;
-    font-size: 16px;
-    margin-bottom: 6px;
-}
-
-.feature-card p {
-    color: #666;
-    font-size: 13px;
-}
-
-
-/* =====================================
-   SECTION
-===================================== */
-
-.section {
-    padding: 75px 6%;
-}
-
-.section-light {
-    background: #f5f8fc;
-}
-
-.section-title {
-    max-width: 750px;
-    margin: 0 auto 40px;
-    text-align: center;
-}
-
-.section-title span {
-    color: #e0a000;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-}
-
-.section-title h2 {
-    color: #064b9b;
-    font-size: clamp(27px, 4vw, 40px);
-    line-height: 1.2;
-    margin: 8px 0 12px;
-}
-
-.section-title p {
-    color: #666;
-    font-size: 15px;
-}
-
-
-/* =====================================
-   PROFIL
-===================================== */
-
-.profile-box {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
+
+    padding: 50px 6%;
+
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns:
+        repeat(4, 1fr);
+
     gap: 20px;
 }
 
-.profile-text,
-.profile-highlight {
-    border-radius: 14px;
-    padding: 35px;
+
+.feature-card {
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 25px
+        rgba(0,0,0,.08);
 }
 
-.profile-text {
+
+.feature-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+
+.feature-card h3 {
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    padding: 80px 6%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+
+.section-light {
+    max-width: none;
     background: #f5f8fc;
 }
 
-.profile-text h3 {
-    color: #064b9b;
-    font-size: 24px;
-    margin-bottom: 12px;
+
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 45px;
 }
+
+
+.section-title span {
+    color: #0b63ce;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+.section-title h2 {
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+
+/* =========================
+   PROFIL
+========================= */
+
+.profile-box {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+
+.profile-text,
+.profile-highlight {
+    padding: 35px;
+    border-radius: 18px;
+    background: #f5f8fc;
+}
+
 
 .profile-text p {
-    color: #555;
-    margin-bottom: 12px;
+    margin-top: 15px;
 }
 
+
 .profile-highlight {
-    background: #064b9b;
-    color: #fff;
+    background: #0645a5;
+    color: white;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
 }
 
+
 .profile-highlight strong {
-    font-size: 32px;
+    font-size: 40px;
 }
+
 
 .profile-highlight span {
-    color: #f2c94c;
-    font-size: 19px;
-    font-weight: bold;
+    font-size: 22px;
 }
 
 
-/* =====================================
+/* =========================
    KEGIATAN
-===================================== */
+========================= */
 
 .activity-grid {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
 }
+
 
 .activity-card {
-    background: #fff;
-    padding: 25px 22px;
-    border-radius: 12px;
-    border: 1px solid #e3e8ef;
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 25px
+        rgba(0,0,0,.07);
 }
+
 
 .activity-number {
-    color: #e0a000;
-    font-size: 27px;
+    font-size: 30px;
     font-weight: bold;
+    color: #0b63ce;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.menu-grid {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+
+.menu-card {
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.1);
+}
+
+
+.menu-card > img {
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s;
+}
+
+
+.menu-card > img:hover {
+    transform: scale(1.03);
+}
+
+
+.menu-info {
+    padding: 25px;
+}
+
+
+.menu-info span {
+    color: #0b63ce;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+.menu-info h3 {
+    margin: 5px 0 10px;
+}
+
+
+/* =========================
+   KOMENTAR
+========================= */
+
+.comment-box {
+    padding: 20px 25px 25px;
+
+    border-top: 1px solid #eee;
+}
+
+
+.comment-box h4 {
+    margin-bottom: 15px;
+}
+
+
+.comment-name,
+.comment-text {
+    width: 100%;
+
+    padding: 12px;
+
     margin-bottom: 10px;
+
+    border: 1px solid #d4dbe5;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 15px;
 }
 
-.activity-card h3 {
-    color: #064b9b;
-    margin-bottom: 8px;
+
+.comment-text {
+    min-height: 90px;
+    resize: vertical;
 }
 
-.activity-card p {
-    color: #666;
+
+.comment-box button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #0645a5;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.comment-box button:disabled {
+    opacity: .6;
+}
+
+
+.comments {
+    margin-top: 20px;
+}
+
+
+.comment-item {
+    padding: 12px;
+
+    margin-top: 10px;
+
+    background: #f5f8fc;
+
+    border-radius: 10px;
+}
+
+
+.comment-item strong {
+    color: #0645a5;
+}
+
+
+.comment-item p {
+    margin-top: 4px;
+    word-break: break-word;
+}
+
+
+.no-comment {
+    color: #777;
     font-size: 14px;
 }
 
 
-/* =====================================
-   FOTO MENU
-===================================== */
+/* =========================
+   POPUP FOTO
+========================= */
 
-.menu-grid {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+.menu-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0,0,0,.8);
 }
 
-.menu-card {
-    background: #fff;
-    border-radius: 13px;
-    overflow: hidden;
-    box-shadow: 0 5px 18px rgba(0,0,0,.09);
+
+.menu-modal.show {
+    display: flex;
 }
 
-.menu-card img {
+
+.menu-modal-content {
+    width: min(900px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+}
+
+
+.menu-modal-content img {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
 
-.menu-info {
-    padding: 17px;
-}
+    max-height: 65vh;
 
-.menu-info span {
-    color: #e0a000;
-    font-size: 11px;
-    font-weight: bold;
-}
+    object-fit: contain;
 
-.menu-info h3 {
-    color: #064b9b;
-    margin: 4px 0;
-}
-
-.menu-info p {
-    color: #666;
-    font-size: 13px;
-}
-
-
-/* =====================================
-   GALERI
-===================================== */
-
-.gallery-grid {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
     border-radius: 12px;
 }
 
 
-/* =====================================
+.menu-modal-content h3 {
+    margin-top: 20px;
+}
+
+
+.close-menu {
+    position: fixed;
+
+    top: 20px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    z-index: 2100;
+}
+
+
+/* =========================
    KONTAK
-===================================== */
+========================= */
 
 .contact-section {
     padding: 70px 6%;
-    background: #064b9b;
-    color: #fff;
+
+    background: #0645a5;
+
+    color: white;
 }
+
 
 .contact-content {
     max-width: 1100px;
+
     margin: auto;
+
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap: 40px;
+
     align-items: center;
 }
 
+
 .contact-label {
-    color: #f2c94c;
-    font-size: 12px;
     font-weight: bold;
-    letter-spacing: 1.5px;
 }
 
-.contact-content h2 {
-    font-size: 34px;
-    line-height: 1.2;
-    margin: 10px 0;
-}
-
-.contact-content p {
-    color: #e2ebf7;
-}
 
 .contact-box {
-    background: rgba(255,255,255,.10);
-    padding: 25px;
-    border-radius: 12px;
+    display: grid;
+    gap: 12px;
 }
+
 
 .contact-box div {
-    margin-bottom: 15px;
+    padding: 15px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border-radius: 10px;
 }
 
-.contact-box div:last-child {
-    margin-bottom: 0;
-}
 
-
-/* =====================================
+/* =========================
    FOOTER
-===================================== */
+========================= */
 
 footer {
-    background: #032c5c;
-    color: #fff;
     text-align: center;
-    padding: 35px 20px;
+
+    padding: 40px 20px;
+
+    background: #062b68;
+
+    color: white;
 }
+
 
 .footer-logo img {
     width: 60px;
-    height: 60px;
-    object-fit: contain;
-    margin: 0 auto 10px;
+
+    margin: auto auto 15px;
 }
 
-footer h3 {
-    margin-bottom: 4px;
-}
-
-footer p {
-    color: #c8d8ea;
-    font-size: 13px;
-}
 
 .footer-line {
-    width: 65px;
+    width: 80px;
+
     height: 2px;
-    background: #e4a000;
-    margin: 18px auto;
+
+    background: rgba(255,255,255,.4);
+
+    margin: 20px auto;
 }
 
-footer small {
-    color: #aebfd3;
-}
 
-
-/* =====================================
+/* =========================
    TABLET
-===================================== */
+========================= */
 
 @media (max-width: 900px) {
 
     .features {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
+
 
     .activity-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 
     .profile-box {
         grid-template-columns: 1fr;
     }
 
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
 }
 
 
-/* =====================================
+
+/* =========================
    HP
-===================================== */
+========================= */
 
 @media (max-width: 700px) {
 
-    /* HEADER */
-
     .topbar {
-        padding: 7px 10px;
-        font-size: 10px;
+        text-align: center;
+        font-size: 12px;
+        padding: 9px;
     }
+
 
     .navbar {
-        min-height: 68px;
-        padding: 7px 4%;
+        padding: 10px 15px;
     }
+
 
     .logo {
         width: 52px;
         height: 52px;
     }
 
-    .brand {
-        gap: 9px;
-    }
 
     .brand-text strong {
         font-size: 18px;
     }
 
+
     .brand-text span {
-        font-size: 12px;
+        font-size: 13px;
     }
 
-    /* TOMBOL MENU HP */
 
     .menu-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
     }
 
-    /* NAVIGASI HP */
 
     .nav-links {
         display: none;
+
         position: absolute;
-        top: 68px;
+
+        top: 100%;
+
         left: 0;
+
         right: 0;
-        background: #fff;
+
+        background: white;
+
+        padding: 15px;
+
         flex-direction: column;
+
         align-items: stretch;
-        padding: 8px 4%;
-        box-shadow: 0 8px 20px rgba(0,0,0,.12);
+
+        box-shadow:
+            0 10px 20px
+            rgba(0,0,0,.1);
     }
+
 
     .nav-links.show {
         display: flex;
     }
 
+
     .nav-links a {
-        padding: 13px 12px;
-        font-size: 15px;
-        border-bottom: 1px solid #eee;
+        padding: 12px;
+
+        border-bottom:
+            1px solid #eee;
     }
 
-    .nav-links a:last-child {
-        border-bottom: none;
-    }
-
-
-    /* HERO HP */
-
-    .hero {
-        min-height: 430px;
-    }
-
-    .hero-image {
-        height: 430px;
-        object-fit: cover;
-    }
-
-    .hero-overlay {
-        background: linear-gradient(
-            90deg,
-            rgba(3,40,84,.90),
-            rgba(3,40,84,.65)
-        );
-    }
-
-    .hero-content {
-        width: 88%;
-    }
-
-    .hero-label {
-        font-size: 10px;
-        letter-spacing: .8px;
-    }
-
-    .hero h1 {
-        font-size: 34px;
-        line-height: 1.08;
-    }
-
-    .hero p {
-        font-size: 14px;
-        line-height: 1.5;
-        margin-bottom: 22px;
-    }
-
-    .button {
-        padding: 12px 18px;
-        font-size: 14px;
-    }
-
-
-    /* KEUNGGULAN HP */
-
-    .features {
-        width: 90%;
-        margin: 20px auto 0;
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .feature-card {
-        padding: 20px 17px;
-    }
-
-
-    /* SECTION HP */
-
-    .section {
-        padding: 55px 5%;
-    }
-
-    .section-title {
-        margin-bottom: 30px;
-    }
-
-    .section-title h2 {
-        font-size: 28px;
-    }
-
-    .section-title p {
-        font-size: 14px;
-    }
-
-
-    /* PROFIL HP */
-
-    .profile-box {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .profile-text,
-    .profile-highlight {
-        padding: 25px 20px;
-    }
-
-    .profile-text h3 {
-        font-size: 21px;
-    }
-
-    .profile-text p {
-        font-size: 14px;
-    }
-
-    .profile-highlight strong {
-        font-size: 28px;
-    }
-
-
-    /* KEGIATAN HP */
-
-    .activity-grid {
-        grid-template-columns: 1fr;
-        gap: 13px;
-    }
-
-    .activity-card {
-        padding: 22px 20px;
-    }
-
-
-    /* FOTO MENU HP */
-
-    .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-    .menu-card img {
-        height: 250px;
-    }
-
-    .menu-info {
-        padding: 16px;
-    }
-
-
-    /* GALERI HP */
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 13px;
-    }
-
-    .gallery-grid img {
-        height: 250px;
-    }
-
-
-    /* KONTAK HP */
-
-    .contact-section {
-        padding: 55px 5%;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    .contact-content h2 {
-        font-size: 27px;
-    }
-
-    .contact-content p {
-        font-size: 14px;
-    }
-
-    .contact-box {
-        padding: 20px;
-    }
-
-
-    /* FOOTER HP */
-
-    footer {
-        padding: 30px 15px;
-    }
-
-    footer h3 {
-        font-size: 17px;
-    }
-
-    footer p,
-    footer small {
-        font-size: 12px;
-    }
-}
-
-
-/* =====================================
-   HP KECIL
-   360px - 400px
-===================================== */
-
-@media (max-width: 400px) {
-
-    .brand-text strong {
-        font-size: 16px;
-    }
-
-    .logo {
-        width: 48px;
-        height: 48px;
-    }
-
-    .menu-button {
-        width: 40px;
-        height: 40px;
-        font-size: 21px;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .hero p {
-        font-size: 13px;
-    }
 
     .hero {
         min-height: 400px;
     }
 
+
     .hero-image {
         height: 400px;
     }
 
-    .section-title h2 {
-        font-size: 25px;
+
+    .hero-overlay {
+        padding: 25px;
     }
 
-    .menu-card img,
-    .gallery-grid img {
-        height: 220px;
+
+    .hero h1 {
+        font-size: 40px;
     }
+
+
+    .hero p {
+        font-size: 16px;
+    }
+
+
+    .features {
+        grid-template-columns: 1fr;
+
+        padding: 35px 20px;
+    }
+
+
+    .section {
+        padding: 55px 20px;
+    }
+
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    .menu-card > img {
+        height: 250px;
+    }
+
+
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+
+    .menu-modal {
+        padding: 15px;
+    }
+
+
+    .menu-modal-content {
+        padding: 12px;
+
+        border-radius: 14px;
+    }
+
+
+    .close-menu {
+        top: 10px;
+        right: 10px;
+    }
+
 }
