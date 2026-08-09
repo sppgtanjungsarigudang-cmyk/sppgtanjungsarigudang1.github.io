@@ -1294,7 +1294,28 @@ window.addEventListener("scroll", function() {
 
 </script>
 
+<script type="module">
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
+  import {
+    getFirestore
+  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBsa-fwwKdTXDI9aRK7wIMFxi_mXvbiStM",
+    authDomain: "sppg-tanjungsari-gudang-1.firebaseapp.com",
+    projectId: "sppg-tanjungsari-gudang-1",
+    storageBucket: "sppg-tanjungsari-gudang-1.firebasestorage.app",
+    messagingSenderId: "152742591820",
+    appId: "1:152742591820:web:dbd7db1563d763ecb8a3e9"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  console.log("Firebase berhasil terhubung");
+</script>
 </body>
 
 </html>
