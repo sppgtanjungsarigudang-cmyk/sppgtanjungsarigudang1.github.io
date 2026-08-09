@@ -4,3 +4,32 @@
 .hero-banner img{display:block;width:100%;height:auto;max-height:620px;object-fit:cover}
 .banner-button{position:absolute;left:6%;bottom:8%;display:inline-block;padding:13px 22px;background:#b51620;color:#fff;text-decoration:none;border-radius:8px;font-weight:700;box-shadow:0 5px 18px #0003}
 @media(max-width:700px){.hero-banner img{min-height:250px;object-fit:cover}.banner-button{left:5%;bottom:5%;padding:10px 16px;font-size:13px}}
+/* HEADER BANNER PENDEK */
+.hero-banner {
+    height: 150px;
+    max-height: 150px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-banner img {
+    width: 100%;
+    height: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .hero-banner {
+        height: 100px;
+        max-height: 100px;
+    }
+
+    .hero-banner img {
+        height: 100px;
+        max-height: 100px;
+    }
+}
