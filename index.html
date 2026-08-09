@@ -1,124 +1,640 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SPPG Tanjungsari Gudang 1</title>
+<meta charset="UTF-8">
 
-    <meta name="description"
-          content="Website SPPG Tanjungsari Gudang 1 - Program Makan Bergizi Gratis">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>SPPG Tanjungsari Gudang 1</title>
+
+<meta name="description"
+      content="Website resmi SPPG Tanjungsari Gudang 1">
+
+<style>
+
+/* =========================
+   DASAR
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #173b75;
+    background: #f5f7fb;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+    background: #0645a5;
+    color: white;
+    padding: 14px 6%;
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.brand-text strong {
+    display: block;
+    font-size: 24px;
+}
+
+.brand-text small {
+    display: block;
+    font-size: 16px;
+    margin-top: 4px;
+    color: #555;
+}
+
+
+/* =========================
+   MENU NAVIGASI
+========================= */
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #173b75;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #0645a5;
+}
+
+.menu-button {
+    display: none;
+    background: #0645a5;
+    color: white;
+    border: none;
+    padding: 9px 13px;
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    display: block;
+    max-height: 520px;
+    object-fit: cover;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+section {
+    padding: 70px 6%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.section-description {
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   KARTU
+========================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   MENU MAKANAN
+========================= */
+
+.menu-section {
+    background: white;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.menu-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.10);
+    border: 1px solid #eee;
+}
+
+.menu-photo {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-photo:hover {
+    transform: scale(1.02);
+}
+
+.menu-content {
+    padding: 20px;
+}
+
+.menu-number {
+    color: #c48b27;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu-title {
+    font-size: 23px;
+    font-weight: bold;
+    margin: 7px 0;
+}
+
+.menu-description {
+    color: #666;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   KOMENTAR
+========================= */
+
+.comment-box {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 18px;
+}
+
+.comment-box h4 {
+    margin: 0 0 10px;
+}
+
+.comment-box input,
+.comment-box textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 11px;
+    margin-bottom: 9px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.comment-box textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.comment-button {
+    background: #0645a5;
+    color: white;
+    border: none;
+    padding: 11px 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.comment-button:hover {
+    background: #04357d;
+}
+
+.comment-list {
+    margin-top: 18px;
+}
+
+.comment-item {
+    background: #f5f7fb;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 9px;
+    color: #333;
+}
+
+.comment-name {
+    font-weight: bold;
+    color: #0645a5;
+}
+
+.comment-date {
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+}
+
+
+/* =========================
+   MODAL FOTO
+========================= */
+
+.photo-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.photo-modal img {
+    max-width: 95%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   GALERI
+========================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   KONTAK
+========================= */
+
+.contact-box {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.contact-box p {
+    line-height: 1.7;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #0645a5;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+
+/* =========================
+   RESPONSIVE HP
+========================= */
+
+@media (max-width: 900px) {
+
+    .cards,
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .topbar {
+        font-size: 12px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .navbar {
+        padding: 12px 4%;
+    }
+
+    .logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    .brand-text strong {
+        font-size: 19px;
+    }
+
+    .brand-text small {
+        font-size: 13px;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 18px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 9px;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .cards,
+    .menu-grid,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-photo {
+        height: auto;
+        max-height: 400px;
+    }
+
+    .gallery img {
+        height: auto;
+    }
+
+}
+
+
+/* =========================
+   TOMBOL KEMBALI KE ATAS
+========================= */
+
+.back-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: #0645a5;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 5000;
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <header class="header">
 
-        <div class="topbar">
-            SPPG TANJUNGSARI GUDANG 1
-        </div>
+<!-- =========================
+     TOP BAR
+========================= -->
 
-        <nav class="navbar">
-
-            <div class="brand">
-                <img src="assets/foto/logo.png"
-                     class="logo"
-                     alt="Logo SPPG Tanjungsari">
-
-                <div class="brand-text">
-                    <strong>SPPG Tanjungsari</strong>
-                    <span>Gudang 1</span>
-                </div>
-            </div>
-
-            <button class="menu-button"
-                    onclick="document.querySelector('.nav-links').classList.toggle('show')">
-                ☰
-            </button>
-
-            <div class="nav-links">
-
-                <a href="#beranda">Beranda</a>
-
-                <a href="#profil">Profil</a>
-
-                <a href="#kegiatan">Kegiatan</a>
-
-                <a href="#menu">Foto Menu</a>
-
-                <a href="#galeri">Galeri</a>
-
-                <a href="#kontak">Kontak</a>
-
-            </div>
-
-        </nav>
-
-    </header>
+<div class="topbar">
+    SPPG TANJUNGSARI GUDANG 1
+</div>
 
 
-    <!-- ================= HERO ================= -->
-    <section id="beranda" class="hero">
+<!-- =========================
+     NAVBAR
+========================= -->
 
-        <img src="assets/foto/hero.png"
-             alt="SPPG Tanjungsari Gudang 1"
-             class="hero-image">
+<header class="navbar">
 
-        <div class="hero-overlay">
+    <div class="brand">
 
-            <div class="hero-content">
+        <img
+            src="assets/foto/logo.png"
+            class="logo"
+            alt="Logo SPPG">
 
-                <span class="hero-label">
-                    SATUAN PELAYANAN PEMENUHAN GIZI
-                </span>
+        <div class="brand-text">
 
-                <h1>
-                    SPPG TANJUNGSARI<br>
-                    GUDANG 1
-                </h1>
+            <strong>SPPG Tanjungsari</strong>
 
-                <p>
-                    Gizi baik, generasi sehat.
-                    Melayani dengan hati dan menyajikan
-                    makanan bergizi untuk generasi Indonesia.
-                </p>
-
-                <a href="#menu" class="button">
-                    Lihat Foto Menu
-                </a>
-
-            </div>
+            <small>Gudang 1</small>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- ================= KEUNGGULAN ================= -->
-    <section class="features">
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
 
-        <div class="feature-card">
+        ☰
 
-            <div class="feature-icon">✓</div>
+    </button>
 
-            <h3>Aman & Higienis</h3>
+
+    <nav
+        class="nav-links"
+        id="navLinks">
+
+        <a href="#beranda">Beranda</a>
+
+        <a href="#profil">Profil</a>
+
+        <a href="#kegiatan">Kegiatan</a>
+
+        <a href="#menu">Foto Menu</a>
+
+        <a href="#galeri">Galeri</a>
+
+        <a href="#kontak">Kontak</a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     BERANDA
+========================= -->
+
+<section
+    id="beranda"
+    style="padding:0;">
+
+    <div class="hero">
+
+        <img
+            src="assets/foto/hero.png"
+            alt="SPPG Tanjungsari">
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROFIL
+========================= -->
+
+<section id="profil">
+
+    <h2 class="section-title">
+        Tentang SPPG Tanjungsari
+    </h2>
+
+    <p class="section-description">
+        Satuan Pelayanan Pemenuhan Gizi
+    </p>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>🛡️ Aman & Higienis</h3>
 
             <p>
-                Proses pengolahan makanan memperhatikan
-                standar kebersihan dan keamanan pangan.
+                Proses pengolahan makanan dilakukan
+                sesuai dengan standar kebersihan dan
+                keamanan pangan.
             </p>
 
         </div>
 
 
-        <div class="feature-card">
+        <div class="card">
 
-            <div class="feature-icon">🌿</div>
-
-            <h3>Bahan Berkualitas</h3>
+            <h3>🌿 Bahan Berkualitas</h3>
 
             <p>
                 Menggunakan bahan makanan yang segar,
@@ -128,300 +644,159 @@
         </div>
 
 
-        <div class="feature-card">
+        <div class="card">
 
-            <div class="feature-icon">👥</div>
-
-            <h3>Dikelola Profesional</h3>
+            <h3>👥 Dikelola Profesional</h3>
 
             <p>
-                Didukung oleh tim yang terlatih,
-                bertanggung jawab dan profesional.
+                Dikelola oleh tim yang terlatih,
+                profesional dan bertanggung jawab.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     KEGIATAN
+========================= -->
+
+<section
+    id="kegiatan"
+    style="background:white;">
+
+    <h2 class="section-title">
+        Kegiatan SPPG
+    </h2>
+
+    <p class="section-description">
+        Berbagai kegiatan pelayanan dan pemenuhan gizi.
+    </p>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Persiapan Makanan</h3>
+
+            <p>
+                Proses persiapan makanan dilakukan
+                dengan memperhatikan kebersihan
+                dan kualitas bahan.
             </p>
 
         </div>
 
 
-        <div class="feature-card">
+        <div class="card">
 
-            <div class="feature-icon">♥</div>
-
-            <h3>Untuk Generasi</h3>
+            <h3>Pengolahan</h3>
 
             <p>
-                Mendukung pemenuhan gizi dan tumbuh
-                kembang generasi Indonesia.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PROFIL ================= -->
-    <section id="profil" class="section">
-
-        <div class="section-title">
-
-            <span>PROFIL</span>
-
-            <h2>
-                Tentang SPPG Tanjungsari
-            </h2>
-
-            <p>
-                Satuan Pelayanan Pemenuhan Gizi
-                Program Makan Bergizi Gratis.
+                Makanan diolah secara higienis dan
+                sesuai dengan standar yang berlaku.
             </p>
 
         </div>
 
 
-        <div class="profile-box">
+        <div class="card">
 
-            <div class="profile-text">
-
-                <h3>
-                    SPPG Tanjungsari Gudang 1
-                </h3>
-
-                <p>
-                    SPPG Tanjungsari Gudang 1 merupakan
-                    satuan pelayanan yang mendukung
-                    penyediaan makanan bergizi bagi
-                    penerima manfaat Program Makan
-                    Bergizi Gratis.
-                </p>
-
-                <p>
-                    Kami berkomitmen menjaga kualitas,
-                    kebersihan, keamanan pangan serta
-                    proses pelayanan yang bertanggung jawab.
-                </p>
-
-            </div>
-
-            <div class="profile-highlight">
-
-                <strong>
-                    GIZI BAIK
-                </strong>
-
-                <span>
-                    GENERASI SEHAT
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= KEGIATAN ================= -->
-    <section id="kegiatan" class="section section-light">
-
-        <div class="section-title">
-
-            <span>KEGIATAN</span>
-
-            <h2>
-                Kegiatan SPPG
-            </h2>
+            <h3>Distribusi</h3>
 
             <p>
-                Berbagai kegiatan dalam proses
-                pelayanan dan penyediaan makanan bergizi.
+                Makanan siap didistribusikan kepada
+                penerima manfaat.
             </p>
 
         </div>
 
+    </div>
 
-        <div class="activity-grid">
+</section>
 
-            <div class="activity-card">
 
-                <div class="activity-number">
-                    01
+
+<!-- =========================
+     MENU MAKANAN
+========================= -->
+
+<section
+    id="menu"
+    class="menu-section">
+
+    <h2 class="section-title">
+        Menu Makanan
+    </h2>
+
+    <p class="section-description">
+        Dokumentasi menu makanan bergizi
+        yang disajikan oleh SPPG Tanjungsari.
+    </p>
+
+
+    <div class="menu-grid">
+
+
+        <!-- ================= MENU 1 ================= -->
+
+        <div class="menu-card">
+
+            <img
+                src="assets/foto/menu1.png"
+                class="menu-photo"
+                alt="Menu Makanan 1"
+                onclick="bukaFoto(this.src)">
+
+            <div class="menu-content">
+
+                <div class="menu-number">
+                    MENU 01
                 </div>
 
-                <h3>
-                    Persiapan Bahan
-                </h3>
-
-                <p>
-                    Pemilihan dan persiapan bahan
-                    makanan sebelum proses pengolahan.
-                </p>
-
-            </div>
-
-
-            <div class="activity-card">
-
-                <div class="activity-number">
-                    02
+                <div class="menu-title">
+                    Menu Makanan
                 </div>
 
-                <h3>
-                    Pengolahan Makanan
-                </h3>
-
-                <p>
-                    Proses pengolahan makanan dengan
-                    memperhatikan kebersihan dan keamanan.
-                </p>
-
-            </div>
-
-
-            <div class="activity-card">
-
-                <div class="activity-number">
-                    03
+                <div class="menu-description">
+                    Makanan bergizi dan seimbang.
                 </div>
 
-                <h3>
-                    Pengemasan
-                </h3>
 
-                <p>
-                    Makanan dikemas dengan rapi sebelum
-                    didistribusikan kepada penerima manfaat.
-                </p>
+                <div class="comment-box">
 
-            </div>
+                    <h4>
+                        💬 Komentar Tamu
+                    </h4>
 
+                    <input
+                        type="text"
+                        id="nama1"
+                        placeholder="Nama Anda">
 
-            <div class="activity-card">
+                    <textarea
+                        id="komentar1"
+                        placeholder="Tulis komentar tentang menu ini..."></textarea>
 
-                <div class="activity-number">
-                    04
-                </div>
+                    <button
+                        class="comment-button"
+                        onclick="kirimKomentar(1)">
 
-                <h3>
-                    Distribusi
-                </h3>
+                        Kirim Komentar
 
-                <p>
-                    Makanan siap didistribusikan sesuai
-                    dengan jadwal pelayanan.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+                    </button>
 
 
-    <!-- ================= FOTO MENU ================= -->
-    <section id="menu" class="section">
+                    <div
+                        id="commentList1"
+                        class="comment-list">
 
-        <div class="section-title">
-
-            <span>FOTO MENU</span>
-
-            <h2>
-                Menu Makanan
-            </h2>
-
-            <p>
-                Dokumentasi menu makanan bergizi
-                yang disajikan oleh SPPG Tanjungsari.
-            </p>
-
-        </div>
-
-
-        <div class="menu-grid">
-
-            <!-- MENU 1 -->
-            <div class="menu-card">
-
-                <img src="assets/foto/menu1.jpg"
-                     alt="Menu makanan 1">
-
-                <div class="menu-info">
-
-                    <span>MENU 01</span>
-
-                    <h3>
-                        Menu Makanan
-                    </h3>
-
-                    <p>
-                        Makanan bergizi dan seimbang.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- MENU 2 -->
-            <div class="menu-card">
-
-                <img src="assets/foto/menu2.jpg"
-                     alt="Menu makanan 2">
-
-                <div class="menu-info">
-
-                    <span>MENU 02</span>
-
-                    <h3>
-                        Menu Makanan
-                    </h3>
-
-                    <p>
-                        Makanan bergizi dan seimbang.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- MENU 3 -->
-            <div class="menu-card">
-
-                <img src="assets/foto/menu3.jpg"
-                     alt="Menu makanan 3">
-
-                <div class="menu-info">
-
-                    <span>MENU 03</span>
-
-                    <h3>
-                        Menu Makanan
-                    </h3>
-
-                    <p>
-                        Makanan bergizi dan seimbang.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- MENU 4 -->
-            <div class="menu-card">
-
-                <img src="assets/foto/menu4.jpg"
-                     alt="Menu makanan 4">
-
-                <div class="menu-info">
-
-                    <span>MENU 04</span>
-
-                    <h3>
-                        Menu Makanan
-                    </h3>
-
-                    <p>
-                        Makanan bergizi dan seimbang.
-                    </p>
+                    </div>
 
                 </div>
 
@@ -429,88 +804,62 @@
 
         </div>
 
-    </section>
 
 
-    <!-- ================= GALERI ================= -->
-    <section id="galeri" class="section section-light">
+        <!-- ================= MENU 2 ================= -->
 
-        <div class="section-title">
+        <div class="menu-card">
 
-            <span>DOKUMENTASI</span>
+            <img
+                src="assets/foto/menu2.png"
+                class="menu-photo"
+                alt="Menu Makanan 2"
+                onclick="bukaFoto(this.src)">
 
-            <h2>
-                Galeri Kegiatan
-            </h2>
+            <div class="menu-content">
 
-            <p>
-                Dokumentasi kegiatan SPPG Tanjungsari Gudang 1.
-            </p>
+                <div class="menu-number">
+                    MENU 02
+                </div>
 
-        </div>
+                <div class="menu-title">
+                    Menu Makanan
+                </div>
 
-
-        <div class="gallery-grid">
-
-            <img src="assets/foto/hero.png"
-                 alt="Dokumentasi SPPG">
-
-            <img src="assets/foto/menu1.jpg"
-                 alt="Dokumentasi menu">
-
-            <img src="assets/foto/menu2.jpg"
-                 alt="Dokumentasi menu">
-
-            <img src="assets/foto/menu3.jpg"
-                 alt="Dokumentasi menu">
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= KONTAK ================= -->
-    <section id="kontak" class="contact-section">
-
-        <div class="contact-content">
-
-            <div>
-
-                <span class="contact-label">
-                    HUBUNGI KAMI
-                </span>
-
-                <h2>
-                    SPPG Tanjungsari Gudang 1
-                </h2>
-
-                <p>
-                    Untuk informasi lebih lanjut mengenai
-                    kegiatan dan pelayanan SPPG Tanjungsari,
-                    silakan hubungi kami.
-                </p>
-
-            </div>
-
-
-            <div class="contact-box">
-
-                <div>
-                    <strong>📍 Alamat</strong>
-
-                    <p>
-                        SPPG Tanjungsari Gudang 1
-                    </p>
-
+                <div class="menu-description">
+                    Makanan bergizi dan seimbang.
                 </div>
 
 
-                <div>
-                    <strong>📱 WhatsApp</strong>
+                <div class="comment-box">
 
-                    <p>
-                        Hubungi melalui WhatsApp
-                    </p>
+                    <h4>
+                        💬 Komentar Tamu
+                    </h4>
+
+                    <input
+                        type="text"
+                        id="nama2"
+                        placeholder="Nama Anda">
+
+                    <textarea
+                        id="komentar2"
+                        placeholder="Tulis komentar tentang menu ini..."></textarea>
+
+                    <button
+                        class="comment-button"
+                        onclick="kirimKomentar(2)">
+
+                        Kirim Komentar
+
+                    </button>
+
+
+                    <div
+                        id="commentList2"
+                        class="comment-list">
+
+                    </div>
 
                 </div>
 
@@ -518,51 +867,126 @@
 
         </div>
 
-    </section>
 
 
-    <!-- ================= FOOTER ================= -->
-    <footer>
+        <!-- ================= MENU 3 ================= -->
 
-        <div class="footer-logo">
-            <img src="assets/foto/logo.png"
-                 alt="Logo SPPG">
+        <div class="menu-card">
+
+            <img
+                src="assets/foto/menu3.png"
+                class="menu-photo"
+                alt="Menu Makanan 3"
+                onclick="bukaFoto(this.src)">
+
+            <div class="menu-content">
+
+                <div class="menu-number">
+                    MENU 03
+                </div>
+
+                <div class="menu-title">
+                    Menu Makanan
+                </div>
+
+                <div class="menu-description">
+                    Makanan bergizi dan seimbang.
+                </div>
+
+
+                <div class="comment-box">
+
+                    <h4>
+                        💬 Komentar Tamu
+                    </h4>
+
+                    <input
+                        type="text"
+                        id="nama3"
+                        placeholder="Nama Anda">
+
+                    <textarea
+                        id="komentar3"
+                        placeholder="Tulis komentar tentang menu ini..."></textarea>
+
+                    <button
+                        class="comment-button"
+                        onclick="kirimKomentar(3)">
+
+                        Kirim Komentar
+
+                    </button>
+
+
+                    <div
+                        id="commentList3"
+                        class="comment-list">
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <h3>
-            SPPG Tanjungsari Gudang 1
-        </h3>
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     GALERI
+========================= -->
+
+<section id="galeri">
+
+    <h2 class="section-title">
+        Galeri
+    </h2>
+
+    <p class="section-description">
+        Dokumentasi kegiatan SPPG Tanjungsari.
+    </p>
+
+
+    <div class="gallery">
+
+        <img
+            src="assets/foto/hero.png"
+            alt="Galeri 1"
+            onclick="bukaFoto(this.src)">
+
+        <img
+            src="assets/foto/menu1.png"
+            alt="Galeri 2"
+            onclick="bukaFoto(this.src)">
+
+        <img
+            src="assets/foto/menu2.png"
+            alt="Galeri 3"
+            onclick="bukaFoto(this.src)">
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     KONTAK
+========================= -->
+
+<section
+    id="kontak"
+    style="background:white;">
+
+    <h2 class="section-title">
+        Kontak
+    </h2>
+
+    <div class="contact-box">
 
         <p>
-            Satuan Pelayanan Pemenuhan Gizi
-        </p>
-
-        <div class="footer-line"></div>
-
-        <small>
-            © 2026 SPPG Tanjungsari Gudang 1.
-            Semua hak dilindungi.
-        </small>
-
-    </footer>
-
-
-    <!-- ================= SCRIPT ================= -->
-    <script>
-
-        document.querySelectorAll('.nav-links a').forEach(function(link) {
-
-            link.addEventListener('click', function() {
-
-                document
-                    .querySelector('.nav-links')
-                    .classList.remove('show');
-
-            });
-
-        });
-
-    </script>
-
-</body>
-</html>
+            <strong>SPPG
