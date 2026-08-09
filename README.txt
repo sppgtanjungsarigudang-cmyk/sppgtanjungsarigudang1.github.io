@@ -17,3 +17,5 @@ WEBSITE SPPG TANJUNGSARI GUDANG 1
 Catatan domain:
 Domain harus didaftarkan oleh pemilik/penanggung jawab melalui registrar resmi.
 Website ini sudah dibuat responsif untuk HP dan komputer.
+
+Banner utama menggunakan assets/foto/hero.png. Ganti file tersebut untuk mengganti banner.
