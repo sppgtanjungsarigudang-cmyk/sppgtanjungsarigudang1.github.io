@@ -32,6 +32,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #173b75;
     background: #f5f7fb;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
 }
 
 
@@ -92,7 +97,7 @@ body {
 
 
 /* =========================
-   MENU NAVIGASI
+   NAVIGASI
 ========================= */
 
 .nav-links {
@@ -119,6 +124,7 @@ body {
     padding: 9px 13px;
     border-radius: 7px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 
@@ -258,6 +264,7 @@ section {
 
 .comment-box h4 {
     margin: 0 0 10px;
+    color: #173b75;
 }
 
 .comment-box input,
@@ -307,10 +314,16 @@ section {
     color: #0645a5;
 }
 
+.comment-text {
+    margin-top: 5px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
 .comment-date {
     font-size: 11px;
     color: #888;
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 
@@ -323,10 +336,14 @@ section {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.92);
     justify-content: center;
     align-items: center;
     padding: 20px;
+}
+
+.photo-modal.show {
+    display: flex;
 }
 
 .photo-modal img {
@@ -338,11 +355,12 @@ section {
 
 .close-modal {
     position: absolute;
-    top: 15px;
+    top: 10px;
     right: 25px;
     color: white;
     font-size: 45px;
     cursor: pointer;
+    line-height: 1;
 }
 
 
@@ -356,12 +374,29 @@ section {
     gap: 20px;
 }
 
+.gallery-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
 .gallery img {
     width: 100%;
     height: 230px;
     object-fit: cover;
-    border-radius: 12px;
+    display: block;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+.gallery-caption {
+    padding: 12px;
+    font-weight: bold;
 }
 
 
@@ -396,7 +431,32 @@ footer {
 
 
 /* =========================
-   RESPONSIVE HP
+   TOMBOL KEMBALI
+========================= */
+
+.back-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: #0645a5;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 5000;
+}
+
+.back-top.show {
+    display: block;
+}
+
+
+/* =========================
+   TABLET
 ========================= */
 
 @media (max-width: 900px) {
@@ -413,6 +473,10 @@ footer {
 }
 
 
+/* =========================
+   HP
+========================= */
+
 @media (max-width: 700px) {
 
     .topbar {
@@ -422,20 +486,24 @@ footer {
     }
 
     .navbar {
-        padding: 12px 4%;
+        padding: 10px 4%;
     }
 
     .logo {
-        width: 55px;
-        height: 55px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .brand {
+        gap: 9px;
     }
 
     .brand-text strong {
-        font-size: 19px;
+        font-size: 18px;
     }
 
     .brand-text small {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .menu-button {
@@ -450,7 +518,7 @@ footer {
         right: 0;
         background: white;
         flex-direction: column;
-        padding: 18px;
+        padding: 15px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
@@ -461,7 +529,7 @@ footer {
     .nav-links a {
         width: 100%;
         text-align: center;
-        padding: 9px;
+        padding: 10px;
     }
 
     section {
@@ -470,6 +538,10 @@ footer {
 
     .section-title {
         font-size: 30px;
+    }
+
+    .section-description {
+        font-size: 15px;
     }
 
     .cards,
@@ -487,27 +559,32 @@ footer {
         height: auto;
     }
 
+    .comment-box input,
+    .comment-box textarea {
+        font-size: 16px;
+    }
+
 }
 
 
 /* =========================
-   TOMBOL KEMBALI KE ATAS
+   HP KECIL
 ========================= */
 
-.back-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: none;
-    background: #0645a5;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    display: none;
-    z-index: 5000;
+@media (max-width: 400px) {
+
+    .brand-text strong {
+        font-size: 16px;
+    }
+
+    .brand-text small {
+        font-size: 11px;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
 }
 
 </style>
@@ -553,7 +630,8 @@ footer {
 
     <button
         class="menu-button"
-        onclick="toggleMenu()">
+        onclick="toggleMenu()"
+        aria-label="Buka menu">
 
         ☰
 
@@ -564,22 +642,21 @@ footer {
         class="nav-links"
         id="navLinks">
 
-        <a href="#beranda">Beranda</a>
+        <a href="#beranda" onclick="tutupMenu()">Beranda</a>
 
-        <a href="#profil">Profil</a>
+        <a href="#profil" onclick="tutupMenu()">Profil</a>
 
-        <a href="#kegiatan">Kegiatan</a>
+        <a href="#kegiatan" onclick="tutupMenu()">Kegiatan</a>
 
-        <a href="#menu">Foto Menu</a>
+        <a href="#menu" onclick="tutupMenu()">Foto Menu</a>
 
-        <a href="#galeri">Galeri</a>
+        <a href="#galeri" onclick="tutupMenu()">Galeri</a>
 
-        <a href="#kontak">Kontak</a>
+        <a href="#kontak" onclick="tutupMenu()">Kontak</a>
 
     </nav>
 
 </header>
-
 
 
 <!-- =========================
@@ -594,12 +671,11 @@ footer {
 
         <img
             src="assets/foto/hero.png"
-            alt="SPPG Tanjungsari">
+            alt="SPPG Tanjungsari Gudang 1">
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -658,7 +734,6 @@ footer {
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -721,7 +796,6 @@ footer {
 </section>
 
 
-
 <!-- =========================
      MENU MAKANAN
 ========================= -->
@@ -743,12 +817,14 @@ footer {
     <div class="menu-grid">
 
 
-        <!-- ================= MENU 1 ================= -->
+        <!-- =================
+             MENU 1
+        ================= -->
 
         <div class="menu-card">
 
             <img
-                src="assets/foto/menu1.png"
+                src="assets/foto/menu1.jpg"
                 class="menu-photo"
                 alt="Menu Makanan 1"
                 onclick="bukaFoto(this.src)">
@@ -768,6 +844,8 @@ footer {
                 </div>
 
 
+                <!-- KOMENTAR -->
+
                 <div class="comment-box">
 
                     <h4>
@@ -777,10 +855,12 @@ footer {
                     <input
                         type="text"
                         id="nama1"
+                        maxlength="50"
                         placeholder="Nama Anda">
 
                     <textarea
                         id="komentar1"
+                        maxlength="500"
                         placeholder="Tulis komentar tentang menu ini..."></textarea>
 
                     <button
@@ -805,135 +885,9 @@ footer {
         </div>
 
 
-
-        <!-- ================= MENU 2 ================= -->
-
-        <div class="menu-card">
-
-            <img
-                src="assets/foto/menu2.png"
-                class="menu-photo"
-                alt="Menu Makanan 2"
-                onclick="bukaFoto(this.src)">
-
-            <div class="menu-content">
-
-                <div class="menu-number">
-                    MENU 02
-                </div>
-
-                <div class="menu-title">
-                    Menu Makanan
-                </div>
-
-                <div class="menu-description">
-                    Makanan bergizi dan seimbang.
-                </div>
-
-
-                <div class="comment-box">
-
-                    <h4>
-                        💬 Komentar Tamu
-                    </h4>
-
-                    <input
-                        type="text"
-                        id="nama2"
-                        placeholder="Nama Anda">
-
-                    <textarea
-                        id="komentar2"
-                        placeholder="Tulis komentar tentang menu ini..."></textarea>
-
-                    <button
-                        class="comment-button"
-                        onclick="kirimKomentar(2)">
-
-                        Kirim Komentar
-
-                    </button>
-
-
-                    <div
-                        id="commentList2"
-                        class="comment-list">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- ================= MENU 3 ================= -->
-
-        <div class="menu-card">
-
-            <img
-                src="assets/foto/menu3.png"
-                class="menu-photo"
-                alt="Menu Makanan 3"
-                onclick="bukaFoto(this.src)">
-
-            <div class="menu-content">
-
-                <div class="menu-number">
-                    MENU 03
-                </div>
-
-                <div class="menu-title">
-                    Menu Makanan
-                </div>
-
-                <div class="menu-description">
-                    Makanan bergizi dan seimbang.
-                </div>
-
-
-                <div class="comment-box">
-
-                    <h4>
-                        💬 Komentar Tamu
-                    </h4>
-
-                    <input
-                        type="text"
-                        id="nama3"
-                        placeholder="Nama Anda">
-
-                    <textarea
-                        id="komentar3"
-                        placeholder="Tulis komentar tentang menu ini..."></textarea>
-
-                    <button
-                        class="comment-button"
-                        onclick="kirimKomentar(3)">
-
-                        Kirim Komentar
-
-                    </button>
-
-
-                    <div
-                        id="commentList3"
-                        class="comment-list">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -953,25 +907,38 @@ footer {
 
     <div class="gallery">
 
-        <img
-            src="assets/foto/hero.png"
-            alt="Galeri 1"
-            onclick="bukaFoto(this.src)">
 
-        <img
-            src="assets/foto/menu1.png"
-            alt="Galeri 2"
-            onclick="bukaFoto(this.src)">
+        <div class="gallery-item">
 
-        <img
-            src="assets/foto/menu2.png"
-            alt="Galeri 3"
-            onclick="bukaFoto(this.src)">
+            <img
+                src="assets/foto/hero.png"
+                alt="Dokumentasi SPPG"
+                onclick="bukaFoto(this.src)">
+
+            <div class="gallery-caption">
+                Dokumentasi SPPG Tanjungsari
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="assets/foto/menu1.jpg"
+                alt="Menu Makanan"
+                onclick="bukaFoto(this.src)">
+
+            <div class="gallery-caption">
+                Dokumentasi Menu Makanan
+            </div>
+
+        </div>
+
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -986,7 +953,348 @@ footer {
         Kontak
     </h2>
 
+
     <div class="contact-box">
 
         <p>
-            <strong>SPPG
+            <strong>SPPG Tanjungsari Gudang 1</strong>
+        </p>
+
+        <p>
+            Satuan Pelayanan Pemenuhan Gizi
+        </p>
+
+        <p>
+            Website resmi SPPG Tanjungsari Gudang 1.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div>
+        © 2026 SPPG Tanjungsari Gudang 1
+    </div>
+
+    <div style="margin-top:7px;">
+        Melayani dengan hati, menyajikan yang terbaik.
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     MODAL FOTO
+========================= -->
+
+<div
+    id="photoModal"
+    class="photo-modal"
+    onclick="tutupFoto(event)">
+
+    <span
+        class="close-modal"
+        onclick="tutupFoto()">
+        &times;
+    </span>
+
+    <img
+        id="modalImage"
+        src=""
+        alt="Foto diperbesar">
+
+</div>
+
+
+<!-- =========================
+     TOMBOL KE ATAS
+========================= -->
+
+<button
+    id="backTop"
+    class="back-top"
+    onclick="window.scrollTo({top:0, behavior:'smooth'})"
+    aria-label="Kembali ke atas">
+
+    ↑
+
+</button>
+
+
+<script>
+
+/* =========================
+   MENU HP
+========================= */
+
+function toggleMenu() {
+
+    const nav = document.getElementById("navLinks");
+
+    nav.classList.toggle("show");
+
+}
+
+
+function tutupMenu() {
+
+    const nav = document.getElementById("navLinks");
+
+    nav.classList.remove("show");
+
+}
+
+
+/* =========================
+   FOTO BESAR
+========================= */
+
+function bukaFoto(src) {
+
+    const modal = document.getElementById("photoModal");
+
+    const image = document.getElementById("modalImage");
+
+    image.src = src;
+
+    modal.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function tutupFoto(event) {
+
+    if (
+        event &&
+        event.target &&
+        event.target.id !== "photoModal" &&
+        !event.target.classList.contains("close-modal")
+    ) {
+        return;
+    }
+
+    const modal = document.getElementById("photoModal");
+
+    modal.classList.remove("show");
+
+    document.getElementById("modalImage").src = "";
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* =========================
+   TOMBOL ESC
+========================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        const modal = document.getElementById("photoModal");
+
+        modal.classList.remove("show");
+
+        document.getElementById("modalImage").src = "";
+
+        document.body.style.overflow = "";
+
+    }
+
+});
+
+
+/* =========================
+   KOMENTAR
+========================= */
+
+function kirimKomentar(nomor) {
+
+    const namaInput =
+        document.getElementById("nama" + nomor);
+
+    const komentarInput =
+        document.getElementById("komentar" + nomor);
+
+    const nama =
+        namaInput.value.trim();
+
+    const komentar =
+        komentarInput.value.trim();
+
+
+    if (nama === "") {
+
+        alert("Silakan masukkan nama Anda.");
+
+        namaInput.focus();
+
+        return;
+
+    }
+
+
+    if (komentar === "") {
+
+        alert("Silakan tulis komentar terlebih dahulu.");
+
+        komentarInput.focus();
+
+        return;
+
+    }
+
+
+    const data =
+        JSON.parse(
+            localStorage.getItem("komentarMenu" + nomor) || "[]"
+        );
+
+
+    const komentarBaru = {
+
+        nama: nama,
+
+        komentar: komentar,
+
+        tanggal: new Date().toLocaleString("id-ID")
+
+    };
+
+
+    data.push(komentarBaru);
+
+
+    localStorage.setItem(
+        "komentarMenu" + nomor,
+        JSON.stringify(data)
+    );
+
+
+    namaInput.value = "";
+
+    komentarInput.value = "";
+
+
+    tampilkanKomentar(nomor);
+
+}
+
+
+/* =========================
+   TAMPILKAN KOMENTAR
+========================= */
+
+function tampilkanKomentar(nomor) {
+
+    const list =
+        document.getElementById("commentList" + nomor);
+
+
+    if (!list) return;
+
+
+    const data =
+        JSON.parse(
+            localStorage.getItem("komentarMenu" + nomor) || "[]"
+        );
+
+
+    list.innerHTML = "";
+
+
+    data.forEach(function(item) {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "comment-item";
+
+
+        const nama =
+            document.createElement("div");
+
+        nama.className = "comment-name";
+
+        nama.textContent = item.nama;
+
+
+        const teks =
+            document.createElement("div");
+
+        teks.className = "comment-text";
+
+        teks.textContent = item.komentar;
+
+
+        const tanggal =
+            document.createElement("div");
+
+        tanggal.className = "comment-date";
+
+        tanggal.textContent = item.tanggal;
+
+
+        div.appendChild(nama);
+
+        div.appendChild(teks);
+
+        div.appendChild(tanggal);
+
+
+        list.appendChild(div);
+
+    });
+
+}
+
+
+/* =========================
+   MUAT KOMENTAR SAAT DIBUKA
+========================= */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    tampilkanKomentar(1);
+
+});
+
+
+/* =========================
+   TOMBOL KEMBALI KE ATAS
+========================= */
+
+window.addEventListener("scroll", function() {
+
+    const button =
+        document.getElementById("backTop");
+
+
+    if (window.scrollY > 400) {
+
+        button.classList.add("show");
+
+    } else {
+
+        button.classList.remove("show");
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
