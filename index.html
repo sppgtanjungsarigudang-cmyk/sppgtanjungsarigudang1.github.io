@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPPG Tanjungsari Gudang 1</title>
+<meta name="description" content="Website resmi SPPG Tanjungsari Gudang 1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="topbar">SPPG TANJUNGSARI GUDANG 1</div>
+  <nav class="nav">
+    <div class="brand">
+      <div class="logo">SPPG</div>
+      <div><strong>SPPG Tanjungsari</strong><small>Gudang 1</small></div>
+    </div>
+    <button class="menu" onclick="document.querySelector('.links').classList.toggle('show')">☰</button>
+    <div class="links">
+      <a href="#beranda">Beranda</a><a href="#profil">Profil</a><a href="#kegiatan">Kegiatan</a>
+      <a href="#galeri">Galeri</a><a href="#kontak">Kontak</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section id="beranda" class="hero">
+  <div class="hero-text">
+    <span class="badge">PROGRAM MBG</span>
+    <h1>SPPG Tanjungsari<br><span>Gudang 1</span></h1>
+    <p>Informasi, kegiatan, dokumentasi, dan pelayanan SPPG Tanjungsari Gudang 1.</p>
+    <a class="btn" href="#galeri">Lihat Dokumentasi →</a>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/foto/hero.jpg" alt="Foto utama SPPG" onerror="this.style.display='none';this.parentElement.classList.add('placeholder')">
+    <div class="photo-label">PASANG FOTO UTAMA DI SINI</div>
+  </div>
+</section>
+
+<section id="profil" class="section">
+  <div class="section-title"><span>01</span><h2>Profil SPPG</h2></div>
+  <div class="profile-grid">
+    <div>
+      <h3>Tentang Kami</h3>
+      <p>SPPG Tanjungsari Gudang 1 merupakan unit pelaksana yang mendukung penyelenggaraan program Makan Bergizi Gratis (MBG). Halaman ini dapat digunakan untuk menyampaikan profil, kegiatan, dokumentasi, dan informasi kepada masyarakat.</p>
+      <p class="note">Silakan ubah teks ini sesuai profil resmi SPPG Anda.</p>
+    </div>
+    <div class="info-card"><b>SPPG</b><span>Tanjungsari Gudang 1</span><b>Program</b><span>Makan Bergizi Gratis</span><b>Wilayah</b><span>Tanjungsari</span></div>
+  </div>
+</section>
+
+<section id="kegiatan" class="section alt">
+  <div class="section-title"><span>02</span><h2>Kegiatan</h2></div>
+  <div class="cards">
+    <article><div class="card-icon">🍱</div><h3>Produksi & Distribusi</h3><p>Dokumentasikan proses persiapan, produksi, pengemasan, dan distribusi makanan.</p></article>
+    <article><div class="card-icon">🧹</div><h3>Kebersihan & Evaluasi</h3><p>Bagikan kegiatan general cleaning, evaluasi, dan peningkatan kualitas kerja.</p></article>
+    <article><div class="card-icon">👥</div><h3>Kegiatan Relawan</h3><p>Publikasikan aktivitas tim, koordinasi, pelatihan, dan kegiatan bersama.</p></article>
+  </div>
+</section>
+
+<section id="galeri" class="section">
+  <div class="section-title"><span>03</span><h2>Galeri Foto</h2></div>
+  <p class="lead">Ganti foto contoh di folder <b>assets/foto</b>. Nama file yang digunakan: <b>galeri1.jpg</b> sampai <b>galeri6.jpg</b>.</p>
+  <div class="gallery">
+    <div class="gallery-item"><img src="assets/foto/galeri1.jpg" alt="Kegiatan 1" onerror="showPlaceholder(this,'FOTO 1')"></div>
+    <div class="gallery-item"><img src="assets/foto/galeri2.jpg" alt="Kegiatan 2" onerror="showPlaceholder(this,'FOTO 2')"></div>
+    <div class="gallery-item"><img src="assets/foto/galeri3.jpg" alt="Kegiatan 3" onerror="showPlaceholder(this,'FOTO 3')"></div>
+    <div class="gallery-item"><img src="assets/foto/galeri4.jpg" alt="Kegiatan 4" onerror="showPlaceholder(this,'FOTO 4')"></div>
+    <div class="gallery-item"><img src="assets/foto/galeri5.jpg" alt="Kegiatan 5" onerror="showPlaceholder(this,'FOTO 5')"></div>
+    <div class="gallery-item"><img src="assets/foto/galeri6.jpg" alt="Kegiatan 6" onerror="showPlaceholder(this,'FOTO 6')"></div>
+  </div>
+</section>
+
+<section id="kontak" class="section contact">
+  <div class="section-title"><span>04</span><h2>Kontak</h2></div>
+  <div class="contact-grid">
+    <div><h3>SPPG Tanjungsari Gudang 1</h3><p>Alamat: isi alamat lengkap SPPG di sini</p><p>WhatsApp: isi nomor WhatsApp</p><p>Email: isi email resmi</p></div>
+    <div><a class="btn dark" href="https://wa.me/" target="_blank">Hubungi via WhatsApp</a></div>
+  </div>
+</section>
+</main>
+
+<footer><strong>SPPG Tanjungsari Gudang 1</strong><span>© <span id="year"></span> • Website Resmi</span></footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+function showPlaceholder(img,text){ img.style.display='none'; const p=document.createElement('div'); p.className='placeholder'; p.textContent=text; img.parentElement.appendChild(p); }
+</script>
+</body>
+</html>
